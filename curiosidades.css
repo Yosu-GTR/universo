@@ -1,0 +1,366 @@
+:root {
+  --bg-deep-black: #0a0a0a; /* Fondo casi negro para el cuerpo */
+  --bg-dark-panel: #1a1a1a; /* Un gris muy oscuro para contenedores */
+  --text-bright: #efefef; /* Texto principal blanco brillante */
+  --text-subtle: #b0b0b0; /* Texto secundario gris claro */
+  --accent-celestial-blue: #87ceeb; /* Azul celeste para acentos */
+  --accent-cosmic-purple: #bf00ff; /* Púrpura cósmico para acentos secundarios */
+  --border-subtle: #2a2a2a; /* Borde muy oscuro */
+  --shadow-dark: rgba(0, 0, 0, 0.6); /* Sombra oscura para profundidad */
+  --glow-blue-soft: rgba(135, 206, 235, 0.2); /* Resplandor suave azul */
+  --glow-purple-soft: rgba(191, 0, 255, 0.15); /* Resplandor suave púrpura */
+  --flashcard-bg: #111111; /* Fondo de flashcard un poco más claro que el deep black */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg-deep-black);
+  color: var(--text-bright);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* --- Header --- */
+header {
+  width: 100%;
+  background-color: var(--bg-dark-panel);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px var(--shadow-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--accent-celestial-blue);
+  text-decoration: none;
+  text-shadow: 0 0 8px var(--glow-blue-soft);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--text-bright);
+  text-shadow: 0 0 12px var(--glow-blue-soft), 0 0 20px var(--glow-blue-soft);
+}
+
+/* --- Hamburger Menu Icon --- */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-bright);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+body.menu-open .hamburger-menu span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+body.menu-open .hamburger-menu span:nth-child(2) {
+  opacity: 0;
+}
+body.menu-open .hamburger-menu span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* --- Navegación (menú principal) --- */
+nav {
+  display: flex;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--text-subtle);
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+  padding: 8px 15px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--accent-celestial-blue);
+  border-bottom-color: var(--accent-celestial-blue);
+  text-shadow: 0 0 5px var(--glow-blue-soft);
+  transform: translateY(-2px);
+}
+
+/* --- Contenido Principal --- */
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 50px auto;
+  background-color: var(--bg-dark-panel);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--shadow-dark);
+  border: 1px solid var(--border-subtle);
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  color: var(--accent-celestial-blue);
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-subtle);
+  text-shadow: 0 0 10px var(--glow-blue-soft);
+}
+
+.flashcards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Estilo para el flashcard */
+.flashcard-container {
+  width: 100%;
+  height: 400px; /* Altura fija para el contenedor del flashcard */
+  perspective: 1000px; /* Para el efecto 3D */
+}
+
+.flashcard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+  box-shadow: 0 4px 15px var(--shadow-dark);
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+}
+
+.flashcard:hover {
+  transform: rotateY(180deg);
+  box-shadow: 0 8px 25px var(--glow-purple-soft),
+    0 0 15px var(--glow-purple-soft); /* Brillo púrpura al hover */
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Oculta la parte trasera por defecto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--flashcard-bg);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.flashcard-front {
+  z-index: 2;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+  background-color: var(--flashcard-bg); /* Mismo fondo */
+  color: var(--text-subtle);
+  border: 2px solid var(--accent-cosmic-purple); /* Borde diferente para el reverso */
+  box-shadow: 0 0 15px var(--glow-purple-soft);
+}
+
+.flashcard-front img {
+  width: 180px; /* Tamaño de imagen para las curiosidades */
+  height: 180px;
+  border-radius: 50%; /* Hacer las imágenes circulares */
+  object-fit: cover;
+  border: 3px solid var(--accent-celestial-blue);
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px var(--glow-blue-soft);
+  filter: brightness(0.9) saturate(1.1); /* Ajusta la imagen al tema oscuro */
+}
+
+.flashcard-front h3 {
+  font-family: "Orbitron", sans-serif;
+  color: var(--accent-celestial-blue);
+  font-size: 2.2em;
+  margin: 10px 0;
+  text-shadow: 0 0 8px var(--glow-blue-soft);
+}
+
+.flashcard-back h4 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--accent-cosmic-purple);
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px var(--glow-purple-soft);
+  border-bottom: 1px dashed var(--border-subtle);
+  padding-bottom: 10px;
+}
+
+.flashcard-back p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  color: var(--text-subtle);
+}
+
+.flashcard-back .source {
+  font-size: 0.9em;
+  color: var(--text-bright);
+  margin-top: 15px;
+  opacity: 0.7;
+}
+
+/* --- Footer --- */
+footer {
+  width: 100%;
+  background-color: var(--bg-dark-panel);
+  padding: 25px 0;
+  text-align: center;
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: 0 -2px 10px var(--shadow-dark);
+  color: var(--text-subtle);
+  font-size: 0.9em;
+}
+
+/* --- Media Queries para Responsive Design (incluyendo el menú hamburguesa) --- */
+@media (max-width: 900px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100%;
+    background-color: var(--bg-dark-panel);
+    box-shadow: -5px 0 15px var(--shadow-dark);
+    padding-top: 100px;
+    transition: right 0.4s ease-in-out;
+    z-index: 1050;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--border-subtle);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  nav a.active,
+  nav a:hover {
+    background-color: var(--bg-deep-black);
+    border-bottom-color: var(--accent-celestial-blue);
+    color: var(--accent-celestial-blue);
+    transform: translateX(5px);
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  body.menu-open nav {
+    right: 0;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  body.menu-open::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1040;
+    cursor: pointer;
+  }
+
+  h2 {
+    font-size: 2.2em;
+  }
+  .flashcards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .flashcard-front h3 {
+    font-size: 2em;
+  }
+  .flashcard-back h4 {
+    font-size: 1.6em;
+  }
+  .flashcard-front img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 550px) {
+  header {
+    padding: 15px 20px;
+  }
+  .logo {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  .flashcard-container {
+    height: 350px;
+  }
+  .flashcard-front img {
+    width: 120px;
+    height: 120px;
+  }
+  .flashcard-front h3 {
+    font-size: 1.6em;
+  }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Universo Oscuro: Planetas y Cuerpos Celestes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="universo-planetas.css" />
+    <link
+      rel="icon"
+      type="icon"
+      href="https://i.pinimg.com/736x/cc/90/31/cc90318218b5fd5743848230532f00d4.jpg"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="universo-negro-inicio.html" class="logo">El Universo</a>
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li>
+            <a href="planetas.html" class="active"
+              >Planetas y Cuerpos Celestes</a
+            >
+          </li>
+          <!-- Aquí se vincularán los otros HTML cuando los crees -->
+          <li><a href="#galeria">Galería Cósmica</a></li>
+          <li><a href="#curiosidades">Curiosidades Espaciales</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h2>Viajando por los Mundos del Cosmos</h2>
+
+      <div class="celestial-grid">
+        <!-- Tarjeta de Cuerpo Celeste 1: La Tierra -->
+        <div class="celestial-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
+            alt="La Tierra"
+            loading="lazy"
+          />
+          <h3>La Tierra</h3>
+          <p>
+            Nuestro hogar, un planeta rocoso con vida abundante y una atmósfera
+            protectora. Es el único mundo conocido que alberga una diversidad
+            biológica tan rica y un equilibrio climático que permite la vida
+            compleja.
+          </p>
+          <span class="type">Planeta Telúrico</span>
+        </div>
+
+        <!-- Tarjeta de Cuerpo Celeste 2: Saturno -->
+        <div class="celestial-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Saturn_during_Equinox.jpg/800px-Saturn_during_Equinox.jpg"
+            alt="Saturno"
+            loading="lazy"
+          />
+          <h3>Saturno</h3>
+          <p>
+            Famoso por sus impresionantes anillos compuestos de innumerables
+            partículas de hielo y roca. Es el segundo gigante gaseoso más grande
+            de nuestro sistema solar y un espectáculo majestuoso.
+          </p>
+          <span class="type">Gigante Gaseoso</span>
+        </div>
+
+        <!-- Tarjeta de Cuerpo Celeste 3: La Nebulosa del Cangrejo -->
+        <div class="celestial-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Crab_Nebula.jpg"
+            alt="Nebulosa del Cangrejo"
+            loading="lazy"
+          />
+          <h3>Nebulosa del Cangrejo</h3>
+          <p>
+            El remanente de una supernova que fue observada en el año 1054. Es
+            una intensa fuente de radiación, con una estrella de neutrones en su
+            centro que gira rápidamente.
+          </p>
+          <span class="type">Remanente de Supernova</span>
+        </div>
+
+        <!-- Tarjeta de Cuerpo Celeste 4: Titán (Luna de Saturno) -->
+        <div class="celestial-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Titan_in_true_color.jpg/800px-Titan_in_true_color.jpg"
+            alt="Titán"
+            loading="lazy"
+          />
+          <h3>Titán</h3>
+          <p>
+            La luna más grande de Saturno y el segundo satélite más grande del
+            sistema solar. Es única por tener una atmósfera densa y lagos de
+            hidrocarburos líquidos en su superficie.
+          </p>
+          <span class="type">Satélite Gigante</span>
+        </div>
+
+        <!-- Tarjeta de Cuerpo Celeste 5: Agujero Negro Sagitario A* -->
+        <div class="celestial-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/SgrA_collaboration_artist_impression.jpg/800px-SgrA_collaboration_artist_impression.jpg"
+            alt="Sagitario A*"
+            loading="lazy"
+          />
+          <h3>Sagitario A*</h3>
+          <p>
+            El agujero negro supermasivo en el centro de nuestra galaxia, la Vía
+            Láctea. Su inmensa gravedad influencia la órbita de todas las
+            estrellas cercanas, siendo un misterio en sí mismo.
+          </p>
+          <span class="type">Agujero Negro Supermasivo</span>
+        </div>
+
+        <!-- Puedes añadir más tarjetas de cuerpos celestes aquí -->
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2023 Explorando el Universo Profundo. Todos los derechos
+        reservados.
+      </p>
+      <p>Una travesía por el conocimiento estelar.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("hamburgerMenu")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("menu-open");
+        });
+
+      document.body.addEventListener("click", function (event) {
+        const hamburger = document.getElementById("hamburgerMenu");
+        const nav = document.getElementById("mainNav");
+        const isClickInsideMenu =
+          nav.contains(event.target) || hamburger.contains(event.target);
+
+        if (
+          !isClickInsideMenu &&
+          document.body.classList.contains("menu-open")
+        ) {
+          document.body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

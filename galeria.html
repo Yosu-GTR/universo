@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Universo Oscuro: Galería Cósmica</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="galeria.css" />
+    <link
+      rel="icon"
+      type="icon"
+      href="https://i.pinimg.com/736x/cc/90/31/cc90318218b5fd5743848230532f00d4.jpg"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">El Universo</a>
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li>
+            <a href="planetas.html">Planetas y Cuerpos Celestes</a>
+          </li>
+          <li>
+            <a href="galeria.html" class="active">Galería Cósmica</a>
+          </li>
+          <!-- Aquí se vinculará el HTML de curiosidades -->
+          <li><a href="curiosidades.html">Curiosidades Espaciales</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h2>Un Banquete Visual de lo Cósmico</h2>
+
+      <div class="gallery-grid">
+        <!-- Item de Galería 1: Nebulosa de la Hélice -->
+        <div class="gallery-item">
+          <img
+            src="https://th.bing.com/th/id/OSK.HEROWCVia3TuhnHcSjE3OJKST-Hd6wssS0zB0lquP_u9NdQ?w=296&h=176&c=1&rs=2&o=6&pid=SANGAM"
+            alt="Nebulosa de la Hélice"
+            loading="lazy"
+          />
+          <div class="gallery-caption">
+            La Nebulosa de la Hélice: El Ojo de Dios
+          </div>
+        </div>
+
+        <!-- Item de Galería 2: Galaxia del Remolino (M51) -->
+        <div class="gallery-item">
+          <img
+            src="https://th.bing.com/th/id/OSK.HEROMPnYfLApwj37JPycPQjWnP4QdZil73PkHYfjhItnbEQ?w=296&h=176&c=1&rs=2&o=6&pid=SANGAM"
+            alt="Galaxia del Remolino"
+            loading="lazy"
+          />
+          <div class="gallery-caption">
+            Galaxia del Remolino (M51): Una Danza Galáctica
+          </div>
+        </div>
+
+        <!-- Item de Galería 3: Júpiter con la Gran Mancha Roja -->
+        <div class="gallery-item">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"
+            alt="Júpiter"
+            loading="lazy"
+          />
+          <div class="gallery-caption">
+            Júpiter: El Gigante Gaseoso con su Gran Mancha Roja
+          </div>
+        </div>
+
+        <!-- Item de Galería 4: El Quinteto de Stephan -->
+        <div class="gallery-item">
+          <img
+            src="https://th.bing.com/th/id/OSK.jR7MC4fl_B4HMzRbZ5WMJF0-roRn7Aj5SK_sEzL_CmE?w=64&h=64&c=7&o=6&pid=SANGAM"
+            alt="Quinteto de Stephan"
+            loading="lazy"
+          />
+          <div class="gallery-caption">
+            El Quinteto de Stephan: Un Grupo de Galaxias en Interacción
+          </div>
+        </div>
+
+        <!-- Item de Galería 5: La Nebulosa del Corazón (IC 1805) -->
+        <div class="gallery-item">
+          <img
+            src="https://th.bing.com/th/id/OIP.BgGjVGZOf4DdS_IB2k67rgHaGn?w=200&h=200&c=10&o=6&pid=genserp&rm=2"
+            alt="Nebulosa del Corazón"
+            loading="lazy"
+          />
+          <div class="gallery-caption">La Nebulosa del Corazón (IC 1805)</div>
+        </div>
+
+        <!-- Item de Galería 6: La Tierra y la Luna -->
+        <div class="gallery-item">
+          <img
+            src="https://thumbs.dreamstime.com/b/tierra-y-luna-abstractas-del-planeta-35761898.jpg"
+            alt="Tierra y Luna"
+            loading="lazy"
+          />
+          <div class="gallery-caption">
+            Tierra y Luna: Una Perspectiva Cósmica
+          </div>
+        </div>
+
+        <!-- Puedes añadir más imágenes aquí siguiendo el mismo patrón -->
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2023 Explorando el Universo Profundo. Todos los derechos
+        reservados.
+      </p>
+      <p>Una travesía por el conocimiento estelar.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("hamburgerMenu")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("menu-open");
+        });
+
+      document.body.addEventListener("click", function (event) {
+        const hamburger = document.getElementById("hamburgerMenu");
+        const nav = document.getElementById("mainNav");
+        const isClickInsideMenu =
+          nav.contains(event.target) || hamburger.contains(event.target);
+
+        if (
+          !isClickInsideMenu &&
+          document.body.classList.contains("menu-open")
+        ) {
+          document.body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

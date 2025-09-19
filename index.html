@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Universo Oscuro: Inicio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      type="icon"
+      href="https://i.pinimg.com/736x/cc/90/31/cc90318218b5fd5743848230532f00d4.jpg"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">El Universo</a>
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="mainNav">
+        <ul>
+          <li>
+            <a href="index.htmlxs" class="active">Inicio</a>
+          </li>
+          <li><a href="planetas.html">Planetas y Cuerpos Celestes</a></li>
+          <li><a href="galeria.html">Galería Cósmica</a></li>
+          <li><a href="curiosidades.html">Curiosidades Espaciales</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h2>Un Viaje al Corazón del Cosmos</h2>
+
+      <div class="info-section">
+        <div class="info-card">
+          <h3>La Vastedad Inaprensible</h3>
+          <p>
+            El universo abarca todo lo que conocemos: desde las diminutas
+            partículas subatómicas hasta las gigantescas estructuras de galaxias
+            y cúmulos galácticos. Es un lienzo en constante expansión, lleno de
+            misterios y fenómenos que desafían nuestra comprensión.
+          </p>
+          <p>
+            Nuestra existencia en él es una minúscula mota, pero nuestra
+            curiosidad es ilimitada.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Los Constituyentes Fundamentales</h3>
+          <p>El cosmos se compone de elementos extraordinarios:</p>
+          <ul>
+            <li>
+              🌌 **Estrellas:** Faros cósmicos, hornos nucleares que dan vida.
+            </li>
+            <li>
+              🌌 **Galaxias:** Islas de estrellas, como nuestra Vía Láctea.
+            </li>
+            <li>
+              🌌 **Planetas:** Mundos de roca, hielo o gas que orbitan sus
+              estrellas.
+            </li>
+            <li>
+              🌌 **Agujeros Negros:** Puntos de no retorno, con una gravedad
+              extrema.
+            </li>
+            <li>
+              🌌 **Materia y Energía Oscura:** Los enigmáticos componentes
+              dominantes del universo.
+            </li>
+          </ul>
+          <p>Cada componente contribuye a la intrincada danza cósmica.</p>
+        </div>
+      </div>
+
+      <div class="info-card full-width">
+        <h3>Nuestra Ventana al Cosmos</h3>
+        <p>
+          A través de la tecnología de vanguardia, como los telescopios
+          espaciales y las sondas interplanetarias, la humanidad está
+          extendiendo su vista y su conocimiento más allá de la Tierra.
+        </p>
+        <p>
+          Cada nueva observación nos revela un detalle más de este tapiz
+          cósmico, empujando los límites de la ciencia y nuestra propia
+          imaginación.
+        </p>
+        <img
+          src="https://img.freepik.com/foto-gratis/fondo-pantalla-abstracto-nebulosa-ultra-detallado-4_1562-749.jpg?semt=ais_incoming&w=740&q=80"
+          alt="Vía Láctea y estrellas"
+          class="main-image"
+          loading="lazy"
+        />
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2023 Explorando el Universo Profundo. Todos los derechos
+        reservados.
+      </p>
+      <p>Una travesía por el conocimiento estelar.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("hamburgerMenu")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("menu-open");
+        });
+
+      document.body.addEventListener("click", function (event) {
+        const hamburger = document.getElementById("hamburgerMenu");
+        const nav = document.getElementById("mainNav");
+        const isClickInsideMenu =
+          nav.contains(event.target) || hamburger.contains(event.target);
+
+        if (
+          !isClickInsideMenu &&
+          document.body.classList.contains("menu-open")
+        ) {
+          document.body.classList.remove("menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>
